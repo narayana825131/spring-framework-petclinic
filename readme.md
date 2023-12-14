@@ -102,15 +102,21 @@ As an example, you may use the `-Dspring.profiles.active=jdbc` VM options to sta
 ./mvnw jetty:run-war -Dspring.profiles.active=jdbc
 ```
 
+## Compiling the CSS
+
+There is a `petclinic.css` in `src/main/webapp/resources/resources/css`. 
+It was generated from the `petclinic.scss` source, combined with the [Bootstrap](https://getbootstrap.com/) library.
+If you make changes to the `scss`, or upgrade Bootstrap, you will need to re-compile the CSS resources
+using the Maven profile "css", i.e. `./mvnw generate-resources -P css`.
 
 ## Working with Petclinic in your IDE
 
 ### Prerequisites
 The following items should be installed in your system:
-* Java 8 or newer (full JDK not a JRE)
-* Maven 3.3+ (http://maven.apache.org/install.html)
+* Java 17 or newer (full JDK not a JRE)
+* Maven 3.5+ (https://maven.apache.org/install.html)
 * git command line tool (https://help.github.com/articles/set-up-git)
-* Jetty 9.4+ or Tomcat 9+
+* Jetty 11.0+ or Tomcat 10+
 * Your prefered IDE 
   * Eclipse with the m2e plugin. Note: when m2e is available, there is an m2 icon in Help -> About dialog. If m2e is not there, just follow the install process here: http://www.eclipse.org/m2e/
   * [Spring Tools Suite](https://spring.io/tools) (STS)
@@ -174,7 +180,7 @@ The following items should be installed in your system:
 | Transactions | [business-config.xml](src/main/resources/spring/business-config.xml), [ClinicServiceImpl.java](src/main/java/org/springframework/samples/petclinic/service/ClinicServiceImpl.java) |
 | Cache | [tools-config.xml](src/main/resources/spring/tools-config.xml), [ClinicServiceImpl.java](src/main/java/org/springframework/samples/petclinic/service/ClinicServiceImpl.java) |
 | Bean Profiles | [business-config.xml](src/main/resources/spring/business-config.xml), [ClinicServiceJdbcTests.java](src/test/java/org/springframework/samples/petclinic/service/ClinicServiceJdbcTests.java), [PetclinicInitializer.java](src/main/java/org/springframework/samples/petclinic/PetclinicInitializer.java) |
-| JDBC | [business-config.xml](src/main/resources/spring/business-config.xml), [jdbc folder](src/main/java/org/springframework/samples/petclinic/repository/jdb) |
+| JDBC | [business-config.xml](src/main/resources/spring/business-config.xml), [jdbc folder](src/main/java/org/springframework/samples/petclinic/repository/jdbc) |
 | JPA | [business-config.xml](src/main/resources/spring/business-config.xml), [jpa folder](src/main/java/org/springframework/samples/petclinic/repository/jpa) |
 | Spring Data JPA | [business-config.xml](src/main/resources/spring/business-config.xml), [springdatajpa folder](src/main/java/org/springframework/samples/petclinic/repository/springdatajpa) |
 
